@@ -1,0 +1,28 @@
+.header {
+  outline: 1px solid red;
+  height: 60px;
+  display: grid;
+  grid-template-columns: 0.1fr auto 1fr 0.1fr;
+}
+
+.web-title {
+  display: flex;
+  align-items: center;
+  grid-column: 2;
+  letter-spacing: 1px;
+  &__img {
+    height: 60px;
+    width: 60px;
+    padding: 10px;
+  }
+}
+.user-page-link {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  grid-column: 3;
+  .fa-user-circle {
+    font-size: 35px;
+    color: gray;
+  }
+}
