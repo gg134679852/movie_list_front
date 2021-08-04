@@ -2,7 +2,7 @@ import React, { Fragment ,useState,useEffect} from 'react'
 import './App.scss'
 import NavBar from './NavBar'
 import Main from './Main'
-import {axios} from './controllers/movieController'
+import {axios} from './utils/Axios'
 
 const App =()=>{
   const [movieDatas,setMovieDatas]=useState([])
