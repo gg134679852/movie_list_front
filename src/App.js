@@ -1,13 +1,24 @@
-import React, { Fragment } from 'react'
+import React, { Fragment ,useState,useEffect} from 'react'
 import './App.scss'
 import NavBar from './NavBar'
-import MovieCard from './MovieCard'
+import Main from './Main'
+import {axios} from './controllers/movieController'
 
 const App =()=>{
+  const [movieDatas,setMovieDatas]=useState([])
+  const getMovieList = async ()=>{
+   const response = await axios.get('movieList')
+
+   if(response && response.data.product) return setMovieDatas(response.data.product)
+  }
+  useEffect(()=>{
+     getMovieList()
+  }
+  ,[])
   return(
   <Fragment>
    <NavBar/>
-   <MovieCard/>
+   <Main movieDatas={movieDatas}/>
    </Fragment>
   )
 }

@@ -1,0 +1,25 @@
+
+.movie-card-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(auto, 1fr));
+  width: 100%;
+  grid-gap: 1.5rem;
+}
+
+footer {
+  outline: 1px solid red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (min-width: 768px) {
+  .movie-card-wrapper {
+    grid-template-columns: repeat(3, minmax(auto, 1fr));
+  }
+}
+@media screen and (min-width: 900px) {
+  .movie-card-wrapper {
+    grid-template-columns: repeat(4, minmax(245px, 1fr));
+  }
+}
