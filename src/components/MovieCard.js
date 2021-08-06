@@ -1,21 +1,19 @@
-import React from 'react'
+import React,{useRef} from 'react'
 import './MovieCard.scss'
-const MovieCard = data =>{
-  console.log(data.propDatas.movieDatas)
-  if(data.propDatas.movieDatas){
-  return ( data.propDatas.movieDatas.map(data =>(
-      <div key={data.id} className="movie-card">
-        <img src={`data:image/jpeg;base64,${data.poster}`} className="movie-card__img" alt="" />
+const MovieCard = ({propDatas,openModal}) =>{
+  const cardRef = useRef()
+  const modalSwitch = ()=>{
+   const id = cardRef.current.id
+    openModal(id)
+  }
+  return (
+      <div key={propDatas.id} className="movie-card">
+        <img src={`data:image/jpeg;base64,${propDatas.poster}`} className="movie-card__img" alt="" />
         <div className="movie-card__info">
-          <h1>{data.name}</h1>
+          <h1>{propDatas.name}</h1>
           <p>sadfasdf</p>
-          <a href="asdasd">read more</a>
+          <button onClick={modalSwitch} id={propDatas.id} ref={cardRef}>button</button>
         </div>
       </div>)
-    ))
-  }else{
-   return(<h1>Loading...</h1>)
   }
-  
-}
 export default MovieCard

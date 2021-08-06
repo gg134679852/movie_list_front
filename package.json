@@ -12,6 +12,7 @@
     "react-icons": "^4.2.0",
     "react-scripts": "4.0.3",
     "react-spring": "^9.2.4",
+    "react-youtube": "^7.13.1",
     "sass": "^1.37.0",
     "web-vitals": "^1.1.2"
   },

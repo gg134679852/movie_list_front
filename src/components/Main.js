@@ -1,22 +1,30 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState,Fragment} from 'react'
 import MovieCard from './MovieCard'
+import Modal from './Modal'
 import './Main.scss'
-const Main = props => {
-  const[propDatas,setPropDatas] = useState([])
-  const getPropDatas = ()=>{
-    setPropDatas(props)
+const Main = ({movieDatas}) => {
+  const [showModal, setShowModal] = useState(false)
+  const [modalDataId, setModalDataId] = useState('')
+
+  const openModal = (id) => {
+    setModalDataId(prev => prev = Number(id)-1)
+    setShowModal(prev => !prev)
   }
-  useEffect(()=>{
-    getPropDatas()
-  })
+
   return (
+    <Fragment>
     <section className="movie-card-area">
   <div className="container">
+    {movieDatas&&movieDatas.length ? 
     <div className="movie-card-wrapper">
-       <MovieCard propDatas ={propDatas} />
-    </div>
+      {movieDatas.map(data=>
+       <MovieCard propDatas={data} openModal={openModal} key={data.id}/>
+      )}
+    </div>:<h1>loading...</h1>}
   </div>
 </section>
+<Modal showModal={showModal} setShowModal={setShowModal} propDatas={movieDatas[modalDataId]}/>
+</Fragment>
   )
 }
 
