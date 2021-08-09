@@ -8,7 +8,7 @@ const MovieCard = ({propDatas,openModal}) =>{
   }
   return (
       <div key={propDatas.id} className="movie-card">
-        <img src={`data:image/jpeg;base64,${propDatas.poster}`} className="movie-card__img" alt="" />
+        <img src={propDatas.poster} className="movie-card__img" alt="" />
         <div className="movie-card__info">
           <h1>{propDatas.name}</h1>
           <p>sadfasdf</p>

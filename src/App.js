@@ -2,6 +2,7 @@ import React, { Fragment ,useState,useEffect} from 'react'
 import './App.scss'
 import NavBar from './components/NavBar'
 import Main from './components/Main'
+import Slider from './components/Slider'
 import {axios} from './utils/Axios'
 
 const App =()=>{
@@ -17,7 +18,13 @@ const App =()=>{
   return(
   <Fragment>
    <NavBar/>
-   <Main movieDatas={movieDatas}/>
+    {movieDatas&&movieDatas.length ?
+    <div className="container">
+      <Slider movieDatas={[...movieDatas.slice(0,6)]}/>
+       <Main movieDatas={movieDatas}/>
+   </div>
+   :<h1>loading...</h1>
+    }
    </Fragment>
   )
 }

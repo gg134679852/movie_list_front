@@ -1,12 +1,8 @@
 import React,{useRef,Fragment} from 'react'
 import{useSpring , animated} from 'react-spring'
+import ReactPlayer from 'react-player/youtube'
 import './Modal.scss'
-import YouTube from 'react-youtube';
  const Modal = ({ showModal, setShowModal,propDatas}) => {
-   const opts = {
-      height: '390',
-      width: '640',
-    }
     const animation = useSpring({
     config: {
       duration: 250
@@ -26,7 +22,8 @@ import YouTube from 'react-youtube';
     <div className="movie-modal" onClick={closeModal} ref={modalRef}>
       <animated.div className="movie-modal__card" style={animation}>
         <h1>{propDatas.name}</h1>
-        {propDatas.trailer === 'none' ? <h1>尚無預告片</h1>:<YouTube videoId={propDatas.trailer} opts={opts}/>}
+        {propDatas.trailer === 'none' ? <h1>尚無預告片</h1>:<ReactPlayer url={`http://www.youtube.com/embed/${propDatas.trailer}`}
+      controls={true}/>}
       </animated.div>
     </div>
     : null}

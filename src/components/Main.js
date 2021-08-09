@@ -14,15 +14,12 @@ const Main = ({movieDatas}) => {
   return (
     <Fragment>
     <section className="movie-card-area">
-  <div className="container">
-    {movieDatas&&movieDatas.length ? 
     <div className="movie-card-wrapper">
       {movieDatas.map(data=>
        <MovieCard propDatas={data} openModal={openModal} key={data.id}/>
       )}
-    </div>:<h1>loading...</h1>}
-  </div>
-</section>
+   </div>
+ </section>
 <Modal showModal={showModal} setShowModal={setShowModal} propDatas={movieDatas[modalDataId]}/>
 </Fragment>
   )
