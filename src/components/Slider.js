@@ -14,6 +14,7 @@ const Slider = ({movieDatas}) => {
     {movieDatas.map((data,index)=>(<SwiperSlide className="swiper-item">
       <div className="swiper-card">
         <img className="swiper-card__img" key={index} src={data.backdrop} alt="" />
+        <h3 className="swiper-card__title">{data.name}</h3>
       </div>
     </SwiperSlide>))}
   </Swiper>
