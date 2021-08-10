@@ -11,9 +11,9 @@ const Slider = ({movieDatas}) => {
   return (
   <section className="movie-card-slider-area">
   <Swiper navigation={true} loop={true}className="swiper" >
-    {movieDatas.map((data,index)=>(<SwiperSlide className="swiper__item">
-      <div className="swiper__card">
-        <img className="swiper__card__img" key={index} src={data.backdrop} alt="" />
+    {movieDatas.map((data,index)=>(<SwiperSlide className="swiper-item">
+      <div className="swiper-card">
+        <img className="swiper-card__img" key={index} src={data.backdrop} alt="" />
       </div>
     </SwiperSlide>))}
   </Swiper>
