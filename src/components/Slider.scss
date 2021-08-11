@@ -37,6 +37,23 @@
     font-size: 10px;
     color: azure;
   }
+  &__button{
+    position: absolute;
+    top: 55%;
+    left: 10%;
+    border: 1px solid red;
+    border-radius: 2%;
+    height: 40px;
+    width: 200px;
+    text-align: center;
+    background: red;
+    &__text{
+      color: azure;
+    }
+    &__icon{
+      color: azure;
+    }
+ }
 }
 
 @media screen and (min-width: 900px) {

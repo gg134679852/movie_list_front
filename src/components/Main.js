@@ -1,6 +1,7 @@
 import React,{useState,Fragment} from 'react'
 import MovieCard from './MovieCard'
 import Modal from './Modal'
+import Slider from './Slider'
 import './Main.scss'
 const Main = ({movieDatas}) => {
   const [showModal, setShowModal] = useState(false)
@@ -13,6 +14,7 @@ const Main = ({movieDatas}) => {
 
   return (
     <Fragment>
+      <Slider movieDatas={[...movieDatas.slice(0,6)]} openModal={openModal}/>
     <section className="movie-card-area">
     <div className="movie-card-wrapper">
       {movieDatas.map(data=>
