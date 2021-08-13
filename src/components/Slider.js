@@ -3,8 +3,6 @@ import { Swiper, SwiperSlide } from "swiper/react"
 import SwiperCore, {
   Navigation
 } from 'swiper/core'
-import { IconContext } from "react-icons"
-import { AiFillPlayCircle } from "react-icons/ai"
 import 'swiper/swiper.scss'
 import 'swiper/components/navigation/navigation.scss'
 import './Slider.scss'
@@ -12,7 +10,6 @@ SwiperCore.use([Navigation])
 const Slider = ({movieDatas,openModal}) => { 
   const modalSwitch = (e)=>{
    const id = e.target.id
-    console.log(e.target.id)
     openModal(id)
   }
   return (
