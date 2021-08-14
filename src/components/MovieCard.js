@@ -11,9 +11,12 @@ const MovieCard = ({propDatas,openModal}) =>{
         <img src={propDatas.poster} className="movie-card__img" alt="" />
         <div className="movie-card__info">
           <h1>{propDatas.name}</h1>
-          <p>sadfasdf</p>
-          <button onClick={modalSwitch} id={propDatas.id} ref={cardRef}>button</button>
-        </div>
+          <h3>{propDatas.date}</h3>
+          <button className="movie-card__info__detail-button"
+          onClick={modalSwitch} id={propDatas.id} ref={cardRef}><h4>詳細</h4></button>
+          <button className="movie-card__info__ticket-button"
+          onClick={modalSwitch} id={propDatas.id} ref={cardRef}><h4>收藏</h4></button>
+        </div>   
       </div>)
   }
 export default MovieCard

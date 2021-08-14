@@ -24,20 +24,41 @@
     opacity: 1;
   }
   &__info {
-    position: relative;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     z-index: 3;
-    transform: translateY(-80px);
+    text-align: center;
+    margin: 0 auto;
     opacity: 0;
-    // padding:10px;
-    transition: 0.5s all;
+    transition: 0.4s all;
+    color: azure;
+    font-size: 0.5rem;
+    &__detail-button,&__ticket-button{
+      width: 100px;
+      height: 40px;
+      outline: 1px solid red;
+      background-color: red;
+      border-radius: 3%;
+      margin: 5px;
+      color: azure;
+    }
   }
   &:hover &__info {
     opacity: 1;
   }
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 1050px) {
   .movie-card {
     height: 368px;
+    &__info {
+      font-size: 1rem;
+    }
+    &__detail-button,&__ticket-button{
+       width: 120px;
+       height: 45px;
+     }
   }
 }
