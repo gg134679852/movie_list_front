@@ -3,8 +3,9 @@ import MovieCard from './MovieCard'
 import Modal from './Modal'
 import Slider from './Slider'
 import SearchBar from './SearchBar'
+import {keyWordSearch,genreFliter} from '../utils/startSearch'
 import './Main.scss'
-const Main = ({movieDatas}) => {
+const Main = ({movieDatas,genreData}) => {
   const [showModal, setShowModal] = useState(false)
   const [modalDataId, setModalDataId] = useState('')
   const [searchData, setSearchData] = useState('')
@@ -12,19 +13,20 @@ const Main = ({movieDatas}) => {
     setModalDataId(prev => prev = Number(id)-1)
     setShowModal(prev => !prev)
   }
-  const startSearch = (value)=>{
-    const data= [...movieDatas]
-    const wordFliter = /\w+/g
-    if(wordFliter.test(value)){
-      setSearchData(data.filter(e=>e.subMovieTitle.toLowerCase().match(value.toLowerCase())))
-    }else{
-      setSearchData(data.filter(e=>e.name.indexOf(value,0) !== -1))
-    }
+  const copyData = [...movieDatas]
+
+  const startSearch = async (value)=>{
+   const data = await keyWordSearch(value,copyData)
+   setSearchData(data)
+  }
+  const startGenreFliter = async (value)=>{
+   const data = await genreFliter(value,copyData)
+   setSearchData(data)
   }
   return (
     <Fragment>
       <Slider movieDatas={[...movieDatas.slice(0,6)]} openModal={openModal}/>
-      <SearchBar startSearch={startSearch} />
+      <SearchBar startSearch={startSearch} genreData={genreData} startGenreFliter={startGenreFliter} />
     <section className="movie-card-area">
     <div className="movie-card-wrapper">
       { 
