@@ -1,0 +1,15 @@
+.login{
+  &__container{
+  outline: 1px solid red;
+  position: absolute;
+  top: 10%;
+  left: 20%;
+  width: 1500px;
+  height: 800px;
+  display: flex;
+  }
+  &__left{
+    width: 50%;
+    height: 100%;
+  }
+}

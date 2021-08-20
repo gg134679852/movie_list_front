@@ -1,7 +1,9 @@
 import React, { Fragment ,useState,useEffect} from 'react'
+import {Switch,Route} from 'react-router-dom'
 import './App.scss'
 import NavBar from './components/NavBar'
 import Main from './components/Main'
+import Login from './components/Login'
 import {axios} from './utils/Axios'
 
 const App =()=>{
@@ -33,15 +35,22 @@ const App =()=>{
   }
   ,[])
   return(
-  <Fragment>
+   <Fragment>
    <NavBar/>
+   <Switch>
+   <Route path='/' exact >
     {movieDatas.datas&&movieDatas.datas.length ?
     <div className="container">
        <Main movieDatas={movieDatas.datas}genreData = {movieDatas.genres}/>
    </div>
    :<h1>loading...</h1>
     }
-   </Fragment>
+   </Route>
+  <Route path='/login'>
+     <Login />
+  </Route>
+ </Switch>
+</Fragment>
   )
 }
 

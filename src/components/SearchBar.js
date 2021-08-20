@@ -22,7 +22,7 @@ const SearchBar = ({startSearch,startGenreFliter,genreData})=>{
       </select>
       <form onSubmit={(e)=>{submitSearchValue(e)}}>
      <input className="search-area__input" type="text" onChange={e=>enterSearchValue(e.target.value)} />
-     <button className="search-area__submitButton" type='submit'><i class="fas fa-search"></i></button>
+     <button className="search-area__submitButton" type='submit'><i className="fas fa-search"></i></button>
      </form>
     </div>
   )
