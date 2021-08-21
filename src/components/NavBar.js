@@ -1,7 +1,11 @@
 import React,{Fragment} from 'react'
 import './NavBar.scss'
-import {Link} from "react-router-dom"
+import {useHistory} from "react-router-dom"
 const NavBar =()=>{
+  const history = useHistory()
+  const pageLink = (link)=>{
+    history.push(link)
+  }
   return (
     <Fragment>
     <header className="header">
@@ -13,10 +17,11 @@ const NavBar =()=>{
     <a href="#"><i className="fas fa-user-circle"> </i>
     </a>
   </div> */}
-     
-<Link to='/login'>
-  <button className="header__login-button"></button>
-</Link>
+  <div className="header-buttons">
+    <button className="header-buttons__login" onClick={()=>pageLink('/login')}>
+       登陸
+     </button>
+  </div>
  </header>
  </Fragment>
   )

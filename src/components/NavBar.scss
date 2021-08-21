@@ -3,14 +3,20 @@
   height: 60px;
   display: grid;
   grid-template-columns: 0.1fr auto 1fr 0.5fr 0.1fr;
-  &__login-button{
-    width: 50px;
+}
+.header-buttons{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  grid-column: 4;
+  &__login{
+    width: 100px;
     height: 50px;
     outline: 1px solid red;
-    grid-column: 4;
+    background: red;
+    color: azure;
   }
-}
-
+  }
 .web-title {
   display: flex;
   align-items: center;
@@ -25,13 +31,13 @@
     color: red;
   }
 }
-.user-page-link {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  grid-column: 3;
-  .fa-user-circle {
-    font-size: 35px;
-    color: gray;
-  }
-}
+// .user-page-link {
+//   display: flex;
+//   align-items: center;
+//   justify-content: flex-end;
+//   grid-column: 3;
+//   .fa-user-circle {
+//     font-size: 35px;
+//     color: gray;
+//   }
+// }
