@@ -1,9 +1,9 @@
-.login{
+.register{
   &__container{
   outline: 1px solid red;
   position: absolute;
   top: 10%;
-  left: 20%;
+  left: 11%;
   margin-top: 30%;
   display: grid;
   grid-template-columns: minmax(auto, 1fr)
@@ -25,13 +25,16 @@
       color:azure;
     }
   }
-  &__right__inputs{
+  &__right__form-group{
     display: flex;
     flex-flow:column;
     align-items: center;
     margin-left: 1.5%;
     & input{
        margin: 5px;
+    }
+    & label {
+    color: azure;
     }
     & button{
       width: 120px;
@@ -40,12 +43,21 @@
       color: azure;
       background-color:red;
     }
+    // &__input{
+      
+    // }
   }
 }
 
-
+@media screen and (min-width: 414px) {
+.register{
+  &__container{
+    left: 15%;
+  }
+ }
+}
 @media screen and (min-width: 768px) {
-.login{
+.register{
   &__container{
     width: 700px;
     height: 400px;
@@ -61,7 +73,7 @@
  }
 }
 @media screen and (min-width: 1024px) {
-  .login{
+  .register{
   &__container{
     width: 920px;
     height: 550px;
@@ -70,7 +82,7 @@
  }
 }
 @media screen and (min-width: 2300px) {
-  .login{
+  .register{
   &__container{
     width: 1500px;
     height: 800px;

@@ -4,6 +4,7 @@ import './App.scss'
 import NavBar from './components/NavBar'
 import Main from './components/Main'
 import Login from './components/Login'
+import Register from './components/Register'
 import {axios} from './utils/Axios'
 
 const App =()=>{
@@ -48,6 +49,9 @@ const App =()=>{
    </Route>
   <Route path='/login'>
      <Login />
+  </Route>
+  <Route path='/register'>
+     <Register />
   </Route>
  </Switch>
 </Fragment>

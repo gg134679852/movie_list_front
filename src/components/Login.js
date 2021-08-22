@@ -1,6 +1,11 @@
 import React from "react"
+import {useHistory} from "react-router-dom"
 import './Login.scss'
 const Login = ()=>{
+  const history = useHistory()
+  const pageLink = (link)=>{
+    history.push(link)
+  }
   return (
     <div className="login__container">
       <div className="login__left">
@@ -10,9 +15,9 @@ const Login = ()=>{
         <form className="login__right__inputs">
         <input type="text" />
         <input type="text" />
-        <button type="submit">submit</button>
+        <button type="submit">送出</button>
         </form>
-        <h5>還不是會員? 註冊</h5>
+        <h5>還不是會員? <button onClick={()=>pageLink('/register')}>註冊</button></h5>
       </div>
     </div>
   )
