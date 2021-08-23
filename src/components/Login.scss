@@ -3,7 +3,7 @@
   outline: 1px solid red;
   position: absolute;
   top: 10%;
-  left: 20%;
+  left: 11%;
   margin-top: 30%;
   display: grid;
   grid-template-columns: minmax(auto, 1fr)
@@ -24,14 +24,20 @@
     & h5{
       color:azure;
     }
+    & button{
+      color:azure;
   }
-  &__right__inputs{
+  }
+  &__right__form-group{
     display: flex;
     flex-flow:column;
     align-items: center;
     margin-left: 1.5%;
     & input{
        margin: 5px;
+    }
+    & label {
+    color: azure;
     }
     & button{
       width: 120px;
@@ -44,6 +50,29 @@
 }
 
 
+@media screen and (min-width: 768px) {
+.login{
+  &__container{
+    width: 700px;
+    height: 400px;
+    left: 5%;
+    grid-template-columns:  minmax(auto, 1fr) minmax(auto, 1fr);
+   }
+   &__left{
+    height: 100%;
+    background-image: url('../img/addy-ire-Jz4X5UOoVfs-unsplash.jpg');
+    background-position: center;
+    background-size: cover;
+  }
+ }
+}
+@media screen and (min-width: 414px) {
+.login{
+  &__container{
+    left: 15%;
+  }
+ }
+}
 @media screen and (min-width: 768px) {
 .login{
   &__container{
