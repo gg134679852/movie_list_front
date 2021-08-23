@@ -1,6 +1,7 @@
 import React,{useState} from "react"
 import {useHistory} from "react-router-dom"
 import {axios} from '../utils/Axios' 
+import { Toast } from "../utils/sweetalert"
 import './Login.scss'
 const Login = ()=>{
   const [loginData,SetLoginData] = useState({
@@ -22,7 +23,17 @@ const Login = ()=>{
      }
     })
     .then((obj)=>{
-      console.log(obj)
+      if(obj.data.status === 'success'){
+        Toast.fire({
+          icon: 'success',
+          title: obj.data.message
+        })
+      }else{
+        Toast.fire({
+          icon: 'error',
+          title: obj.data.message
+        })
+      }
     })
   }
   const pageLink = (link)=>{

@@ -1,6 +1,7 @@
 import React,{useState} from 'react'
 import './Register.scss'
 import {axios} from '../utils/Axios' 
+import { Toast } from "../utils/sweetalert"
 const Register = () => {
   const [registerData,setRegisterData] = useState({
     name:'',
@@ -22,7 +23,17 @@ const Register = () => {
       confirmPassword:registerData.confirmPassword}
     })
     .then((obj)=>{
-      console.log(obj)
+      if(obj.data.status === 'success'){
+        Toast.fire({
+          icon: 'success',
+          title: obj.data.message
+        })
+      }else{
+        Toast.fire({
+          icon: 'error',
+          title: obj.data.message
+        })
+      }
     })
   }
   return (
