@@ -2,8 +2,12 @@ import React,{useState} from "react"
 import {useHistory} from "react-router-dom"
 import {axios} from '../utils/Axios' 
 import { Toast } from "../utils/sweetalert"
+import { addUserInfo } from "../state/actions/index"
+import { useDispatch,useSelector } from "react-redux"
 import './Login.scss'
 const Login = ()=>{
+  const dispatch = useDispatch()
+  const userData = useSelector((state)=>state.userReducer)
   const [loginData,SetLoginData] = useState({
     email:'',
     password:'',
@@ -24,10 +28,12 @@ const Login = ()=>{
     })
     .then((obj)=>{
       if(obj.data.status === 'success'){
+        dispatch(addUserInfo(obj.data.user))
         Toast.fire({
           icon: 'success',
           title: obj.data.message
         })
+        console.log(userData)
       }else{
         Toast.fire({
           icon: 'error',
