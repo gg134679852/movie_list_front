@@ -9,7 +9,7 @@
   align-items: center;
   justify-content: flex-end;
   grid-column: 4;
-  &__login{
+  &__login,&__userPage{
     width: 100px;
     height: 50px;
     outline: 1px solid red;
@@ -29,6 +29,30 @@
   }
   & h1{
     color: red;
+  }
+}
+@media screen and (min-width: 2300px) {
+  .header {
+    height: 200px;
+  }
+  .header-buttons{
+    &__login{
+      font-size: 1.5rem;
+    }
+    &__userPage{
+      width: 150px;
+      height: 60px;
+      font-size: 1.5rem;
+    }
+  }
+  .web-title {
+    &__img {
+      height: 100px;
+      width: 100px;
+    }
+    & h1{
+      font-size: 2.5rem;
+    }
   }
 }
 // .user-page-link {

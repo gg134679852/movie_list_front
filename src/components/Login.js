@@ -3,11 +3,10 @@ import {useHistory} from "react-router-dom"
 import {axios} from '../utils/Axios' 
 import { Toast } from "../utils/sweetalert"
 import { addUserInfo } from "../state/actions/index"
-import { useDispatch,useSelector } from "react-redux"
+import { useDispatch} from "react-redux"
 import './Login.scss'
 const Login = ()=>{
   const dispatch = useDispatch()
-  const userData = useSelector((state)=>state.userReducer)
   const [loginData,SetLoginData] = useState({
     email:'',
     password:'',
@@ -33,7 +32,7 @@ const Login = ()=>{
           icon: 'success',
           title: obj.data.message
         })
-        console.log(userData)
+        history.push('/')
       }else{
         Toast.fire({
           icon: 'error',
