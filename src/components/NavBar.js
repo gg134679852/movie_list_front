@@ -17,7 +17,7 @@ const NavBar =()=>{
   </div>
   <div className="header-buttons">
   {userData.id.length !== 0 ? 
-    <button className="header-buttons__userPage" onClick={()=>pageLink('/login')}>
+    <button className="header-buttons__userPage" onClick={()=>pageLink('/userPage')}>
        使用者頁面
      </button>
   :

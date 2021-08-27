@@ -1,13 +1,16 @@
 import React, { Fragment ,useState,useEffect} from 'react'
-import {Switch,Route} from 'react-router-dom'
+import {Switch,Route,Redirect} from 'react-router-dom'
 import './App.scss'
 import NavBar from './components/NavBar'
 import Main from './components/Main'
 import Login from './components/Login'
 import Register from './components/Register'
+import UserPage from './components/UserPage'
+import {useSelector} from "react-redux"
 import {axios} from './utils/Axios'
 
 const App =()=>{
+   const userData = useSelector((state)=>state.userReducer)
   const [movieDatas,setMovieDatas]=useState({datas:[],genres:[]})
   const getMovieList = async ()=>{
   const response = await axios.get('movieList')
@@ -22,13 +25,11 @@ const App =()=>{
          filterData = [...filterData,e.genres]
       }
    })
-
    filterData.forEach(e=>{
       if (!genreData.includes(e)){
          genreData.push(e)
       }
    })
-   
    return setMovieDatas({datas:response.data.product,genres:genreData})
   }
   useEffect(()=>{
@@ -52,6 +53,11 @@ const App =()=>{
   </Route>
   <Route path='/register'>
      <Register />
+  </Route>
+  <Route path='/userPage'>
+     {
+        userData.id.length !== 0 ? <UserPage userData ={userData} />:<Redirect to='/' />
+     }
   </Route>
  </Switch>
 </Fragment>
