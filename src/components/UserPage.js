@@ -28,9 +28,10 @@ const UserPage =({userData})=>{
        <i className="fas fa-user-circle"> </i>
        <div className="userPage__user-area__info">
        <h1>{userData.name}</h1>
-       <h4>{userData.email}</h4>
+       <h1>{userData.email}</h1>
        </div>
      </div>
+      <h1 className="userPage__favorite-movies-area__title">收藏電影列表</h1>
      <div className="userPage__favorite-movies-area">
          {favoriteMovie.data&&favoriteMovie.data.length ? 
          favoriteMovie.data.map((data)=><Favorite propDatas={data} openModal={openModal} key={data.id} />):null}

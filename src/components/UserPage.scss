@@ -1,22 +1,24 @@
 .userPage{
   &__container{
   outline: 1px solid red;
-  width: 85%;
+  width: 95%;
   margin: 2rem auto 3rem auto;
   }
   &__user-area{
   width: 65%;
-  margin-left: 20.5%;
+  margin-left: 18%;
   outline: 1px solid royalblue;
   display: flex;
-  justify-content: space-around;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
   & i{
     color: azure;
-    font-size: 50px;
+    font-size: 80px;
   }
   &__info{
     color: azure;
-    & h1,& h4{
+    & h1{
       font-size: 0.5rem;
     }
    }
@@ -26,6 +28,10 @@
     grid-template-columns: repeat(2, minmax(auto, 1fr));
     width: 100%;
     grid-gap: 1.5rem;
+    &__title{
+    color: azure;
+    margin: 5px;
+  }
   }
 }
 
@@ -34,6 +40,16 @@
     &__favorite-movies-area {
      grid-template-columns: repeat(3, minmax(auto, 1fr));
     }
+    &__user-area{
+       & i{
+         font-size: 150px;
+       }
+    &__info{
+     & h1{
+       font-size: 2rem;
+    }
+   }
+    }
   }
 }
 @media screen and (min-width: 1050px) {
@@ -41,5 +57,24 @@
     &__favorite-movies-area {
     grid-template-columns: repeat(4, minmax(245px, 1fr));
   }
+  &__user-area{
+       & i{
+         font-size: 200px;
+       }
+    &__info{
+     & h1{
+       font-size: 2.5rem;
+    }
+   }
+  }
  }
+}
+@media screen and (min-width: 2300px) {
+  .userPage{
+   &__favorite-movies-area {
+     &__title{
+        font-size: 5rem;
+      }
+    }
+  }
 }
