@@ -1,10 +1,11 @@
-.userPage__container{
+.userPage{
+  &__container{
   outline: 1px solid red;
   width: 85%;
   margin: 2rem auto 3rem auto;
-}
-.userPage__user-area{
-  width: 60%;
+  }
+  &__user-area{
+  width: 65%;
   margin-left: 20.5%;
   outline: 1px solid royalblue;
   display: flex;
@@ -16,7 +17,29 @@
   &__info{
     color: azure;
     & h1,& h4{
-      font-size: 5px;
+      font-size: 0.5rem;
+    }
+   }
+  }
+  &__favorite-movies-area {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(auto, 1fr));
+    width: 100%;
+    grid-gap: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .userPage{
+    &__favorite-movies-area {
+     grid-template-columns: repeat(3, minmax(auto, 1fr));
     }
   }
+}
+@media screen and (min-width: 1050px) {
+  .userPage{
+    &__favorite-movies-area {
+    grid-template-columns: repeat(4, minmax(245px, 1fr));
+  }
+ }
 }

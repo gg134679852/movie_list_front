@@ -1,10 +1,29 @@
 import React,{useRef} from 'react'
 import './MovieCard.scss'
+import axios from 'axios'
+import { Toast } from "../utils/sweetalert"
+import {useSelector} from "react-redux"
 const MovieCard = ({propDatas,openModal}) =>{
   const cardRef = useRef()
+  const userData = useSelector((state)=>state.userReducer)
   const modalSwitch = ()=>{
-   const id = cardRef.current.id
+    const id = cardRef.current.id
     openModal(id)
+  }
+  const addFavoriteMoviete = ()=>{
+    const id = cardRef.current.id
+    axios.post('http://localhost:8000/api/movieList/addFavoriteMovie',{
+     data:{
+      movieId:id,
+      userId:userData.id,
+     }
+    })
+    .then((obj)=>{
+      Toast.fire({
+          icon: obj.data.status,
+          title: obj.data.message
+        })
+    })
   }
   return (
       <div key={propDatas.id} className="movie-card">
@@ -14,8 +33,8 @@ const MovieCard = ({propDatas,openModal}) =>{
           <h3>{propDatas.date}</h3>
           <button className="movie-card__info__detail-button"
           onClick={modalSwitch} id={propDatas.id} ref={cardRef}><h4>詳細</h4></button>
-          <button className="movie-card__info__ticket-button"
-          onClick={modalSwitch} id={propDatas.id} ref={cardRef}><h4>收藏</h4></button>
+          {userData.id.length !== 0 ? <button className="movie-card__info__add-button"
+          onClick={addFavoriteMoviete} id={propDatas.id} ref={cardRef}><h4>收藏</h4></button>:null}
         </div>   
       </div>)
   }

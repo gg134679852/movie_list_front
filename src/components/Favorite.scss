@@ -1,4 +1,4 @@
-.movie-card {
+.favorite-movie-card {
   position: relative;
   &__img {
     border-radius: 20px;
@@ -35,7 +35,7 @@
     transition: 0.4s all;
     color: azure;
     font-size: 0.5rem;
-    &__detail-button,&__add-button{
+    &__detail-button,&__remove-button{
       width: 100px;
       height: 40px;
       outline: 1px solid red;
@@ -51,7 +51,7 @@
 }
 
 @media screen and (min-width: 1050px) {
-  .movie-card {
+  .favorite-movie-card {
     height: 368px;
     &__info {
       font-size: 1rem;
