@@ -1,6 +1,6 @@
 import React,{useRef} from 'react'
 import './Favorite.scss'
-import axios from 'axios'
+import {axios} from '../utils/Axios'
 import { Toast } from "../utils/sweetalert"
 import {useSelector} from "react-redux"
 const Favorite = ({propDatas,openModal}) =>{
@@ -12,7 +12,7 @@ const Favorite = ({propDatas,openModal}) =>{
   }
   const removeFavoriteMoviete = ()=>{
     const id = cardRef.current.id
-    axios.delete('http://localhost:8000/api/movieList/removeFavoriteMovie',{
+    axios.delete('/movieList/removeFavoriteMovie',{
      data:{
       subMovieTitle:id,
       userId:userData.id,

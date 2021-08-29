@@ -1,6 +1,6 @@
 import React,{useRef} from 'react'
 import './MovieCard.scss'
-import axios from 'axios'
+import {axios} from '../utils/Axios'
 import { Toast } from "../utils/sweetalert"
 import {useSelector} from "react-redux"
 const MovieCard = ({propDatas,openModal}) =>{
@@ -12,7 +12,7 @@ const MovieCard = ({propDatas,openModal}) =>{
   }
   const addFavoriteMoviete = ()=>{
     const id = cardRef.current.id
-    axios.post('http://localhost:8000/api/movieList/addFavoriteMovie',{
+    axios.post('/movieList/addFavoriteMovie',{
      data:{
       movieId:id,
       userId:userData.id,

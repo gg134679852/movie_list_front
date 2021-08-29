@@ -1,7 +1,7 @@
 import React,{useState,useEffect,Fragment} from "react"
 import Modal from './Modal'
 import Favorite from "./Favorite"
-import axios from 'axios'
+import {axios} from '../utils/Axios'
 import './UserPage.scss'
 const UserPage =({userData})=>{
   const [favoriteMovie,setFavoriteMovie] = useState('')
@@ -13,7 +13,7 @@ const UserPage =({userData})=>{
     setShowModal(prev => !prev)
   }
   useEffect(()=>{
-   axios.get('http://localhost:8000/api/movieList/favoriteMovies',{
+   axios.get('/movieList/favoriteMovies',{
      params:{
      userId:userData.id}
     })
