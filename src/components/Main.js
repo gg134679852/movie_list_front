@@ -40,6 +40,9 @@ const Main = ({movieDatas,genreData}) => {
    </div>
  </section>
 <Modal showModal={showModal} setShowModal={setShowModal} propDatas={movieDatas[modalDataId]}/>
+<footer>
+  <h2>© 2021 Movie-List All Rights Reserved.</h2>
+</footer>
 </Fragment>
   )
 }
