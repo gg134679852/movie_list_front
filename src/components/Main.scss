@@ -5,7 +5,12 @@
   width: 100%;
   grid-gap: 1.5rem;
 }
-
+.moblie-movie-card-wrapper{
+  display: grid;
+  grid-template-columns: repeat(1, minmax(auto, 1fr));
+  width: 100%;
+  grid-gap: 1.5rem;
+}
 footer {
   height: 100px;
   width: 100%;

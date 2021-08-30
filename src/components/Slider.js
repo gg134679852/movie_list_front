@@ -7,11 +7,8 @@ import 'swiper/swiper.scss'
 import 'swiper/components/navigation/navigation.scss'
 import './Slider.scss'
 SwiperCore.use([Navigation])
-const Slider = ({movieDatas,openModal}) => { 
-  const modalSwitch = (e)=>{
-   const id = e.target.id
-    openModal(id)
-  }
+const Slider = ({movieDatas}) => { 
+  
   return (
   <section className="movie-card-slider-area">
   <Swiper navigation={true} className="swiper">
@@ -19,7 +16,7 @@ const Slider = ({movieDatas,openModal}) => {
       <div className="swiper-card">
         <img className="swiper-card__img"  src={data.backdrop} alt="" />
         <h3 className="swiper-card__title">{data.name}</h3>
-        <button className="swiper-card__button" onClick={modalSwitch} id={data.id}>
+        <button className="swiper-card__button" id={data.id}>
           <h4 className="swiper-card__button__text" id={data.id}>觀看預告片
           </h4>
         </button>

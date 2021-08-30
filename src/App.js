@@ -6,6 +6,7 @@ import Main from './components/Main'
 import Login from './components/Login'
 import Register from './components/Register'
 import UserPage from './components/UserPage'
+import DetailPage from './components/DetailPage'
 import {useSelector} from "react-redux"
 import {axios} from './utils/Axios'
 
@@ -58,6 +59,9 @@ const App =()=>{
      {
         userData.id.length !== 0 ? <UserPage userData ={userData} />:<Redirect to='/' />
      }
+  </Route>
+  <Route path='/detailPage'>
+     <DetailPage />
   </Route>
  </Switch>
 </Fragment>
