@@ -1,13 +1,11 @@
 .userPage{
   &__container{
-  outline: 1px solid red;
   width: 95%;
   margin: 2rem auto 3rem auto;
   }
   &__user-area{
   width: 65%;
   margin-left: 18%;
-  outline: 1px solid royalblue;
   display: flex;
   flex-flow: column;
   justify-content: center;
@@ -18,6 +16,7 @@
   }
   &__info{
     color: azure;
+    text-align: center;
     & h1{
       font-size: 0.5rem;
     }
@@ -30,7 +29,7 @@
     grid-gap: 1.5rem;
     &__title{
     color: azure;
-    margin: 5px;
+    margin: 20px;
   }
   }
 }

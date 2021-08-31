@@ -10,6 +10,7 @@ import './DetailPage.scss'
  const DetailPage = () => {
  const location = useLocation()
  const detailRef = useRef()
+ const [readMore,setReadMore] = useState(false)
  const userData = useSelector((state)=>state.userReducer)
  const {propDatas} = location.state
  const addFavoriteMoviete = ()=>{
@@ -26,6 +27,9 @@ import './DetailPage.scss'
           title: obj.data.message
         })
     })
+  }
+  const openReadMore = ()=>{
+    setReadMore(e=>!e)
   }
   return (
      <div className="detail-page__container">
@@ -48,7 +52,7 @@ import './DetailPage.scss'
         </div>
       </div>
       <div className="detail-page__description">
-          <h5>{propDatas.description}</h5>
+          <h5>{propDatas.description.length < 300 ? propDatas.description:(readMore ? propDatas.description:propDatas.description.slice(0,100))}{propDatas.description.length < 300 ? (null):(<button className ="detail-page__description__read-more-button" onClick={openReadMore}>...展開全文</button>)}</h5>
          </div>
         <div className="detail-page__trailer">
          {propDatas.trailer === 'none' ? <h1>尚無預告片</h1>:<ReactPlayer url={`http://www.youtube.com/embed/${propDatas.trailer}`}

@@ -38,7 +38,6 @@
     &__detail-button,&__remove-button{
       width: 100px;
       height: 40px;
-      outline: 1px solid red;
       background-color: red;
       border-radius: 3%;
       margin: 5px;
@@ -52,7 +51,7 @@
 
 @media screen and (min-width: 1050px) {
   .favorite-movie-card {
-    height: 368px;
+    height: 500px;
     &__info {
       font-size: 1rem;
     }
