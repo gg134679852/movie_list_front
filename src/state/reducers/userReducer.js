@@ -13,6 +13,9 @@ const reducer = (state,action)=>{
     
     case 'addUserInfo':
     return state = {...state,...payload}
+    
+    case 'removeUserInfo':
+    return state = initialState
 
     default:
     return state

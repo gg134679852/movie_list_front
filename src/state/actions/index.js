@@ -4,3 +4,9 @@ export const addUserInfo = (data)=>{
     payload:data
   }
 }
+
+export const removeUserInfo = ()=>{
+  return {
+    type:"removeUserInfo"
+  }
+}

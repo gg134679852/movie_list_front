@@ -1,12 +1,23 @@
 import React,{Fragment} from 'react'
 import './NavBar.scss'
 import {useHistory} from "react-router-dom"
+import { removeUserInfo } from "../state/actions/index"
+import { Toast } from "../utils/sweetalert"
+import { useDispatch} from "react-redux"
 import {useSelector} from "react-redux"
 const NavBar =()=>{
   const userData = useSelector((state)=>state.userReducer)
+  const dispatch = useDispatch()
   const history = useHistory()
   const pageLink = (link)=>{
     history.push(link)
+  }
+  const logout = ()=>{
+    dispatch(removeUserInfo())
+    Toast.fire({
+      icon: 'success',
+      title: "成功登出"
+    })
   }
   return (
     <Fragment>
@@ -17,9 +28,16 @@ const NavBar =()=>{
   </div>
   <div className="header-buttons">
   {userData.id.length !== 0 ? 
-    <button className="header-buttons__userPage" onClick={()=>pageLink('/userPage')}>
+    (
+      <div className="header-buttons__user-buttons">
+        <button className="header-buttons__user-buttons__userPage" onClick={()=>pageLink('/userPage')}>
        使用者頁面
      </button>
+      <button className="header-buttons__user-buttons__logout" onClick={logout}>
+       登出
+     </button>
+      </div>
+    )
   :
     <button className="header-buttons__login" onClick={()=>pageLink('/login')}>
        登陸
