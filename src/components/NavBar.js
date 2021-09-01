@@ -13,6 +13,7 @@ const NavBar =()=>{
   const history = useHistory()
   const pageLink = (link)=>{
     history.push(link)
+    setIsOpen(e=> e ? e=false:e)
   }
   const logout = ()=>{
     dispatch(removeUserInfo())
@@ -20,6 +21,7 @@ const NavBar =()=>{
       icon: 'success',
       title: "成功登出"
     })
+    setIsOpen(e=>!e)
   }
   const openMenu = ()=>{
     setIsOpen(e=>!e)
@@ -37,6 +39,27 @@ const NavBar =()=>{
        <div className="header-buttons__menu-btn__burger">
         </div>
       </div>
+        <ul className={isOpen ? "header-buttons__menu open":"header-buttons__menu"}>
+    {userData.id.length !== 0 ? 
+    (
+      <Fragment>
+      <li>
+        <button className="header-buttons__menu-btn__userPage" onClick={()=>pageLink('/userPage')}>
+       使用者頁面
+     </button>
+     </li>
+     <li>
+      <button className="header-buttons__menu-btn__logout" onClick={logout}>
+       登出
+     </button>
+     </li>
+     </Fragment>
+    )
+  :
+   <li><button className="header-buttons__menu-btn__login" onClick={()=>pageLink('/login')}>
+       登陸
+     </button></li>}
+        </ul>
       </MediaQuery>
       <MediaQuery minWidth={1224}>
         {userData.id.length !== 0 ? 

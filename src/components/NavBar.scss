@@ -1,5 +1,6 @@
 .header {
   height: 60px;
+  position: relative;
   display: grid;
   grid-template-columns: 0.2fr auto 1.6fr 0.5fr 0.2fr;
 }
@@ -55,6 +56,13 @@
       &.open &__burger::after{
         transform: rotate(-45deg) translate(35px, 35px);
       }
+    &__login,&__userPage,&__logout{
+      height: 50px;
+      margin: 10px;
+      font-size: 2rem;
+      color: azure;
+    }
+  }
    &__user-buttons{
      display: flex;
      &__userPage,&__logout{
@@ -65,6 +73,21 @@
     color: azure;
      }
    }
+  &__menu{
+    width: 100%;
+    text-align: center;
+    background: #262626;
+    position: absolute;
+    top: 100%;
+    z-index: 999;
+    opacity: 0;
+    transform: scale(1, 0);
+    transform-origin: top;
+    transition: transform 0.3s ease-out;
+  }
+  &__menu.open{
+    opacity: 1;
+    transform: scale(1, 1);
   }
 }
 .web-title {
