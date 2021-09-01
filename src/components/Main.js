@@ -31,9 +31,6 @@ const Main = ({movieDatas,genreData}) => {
       )}
       </div>
  </section>
-<footer>
-  <h2>© 2021 Movie-List All Rights Reserved.</h2>
-</footer>
 </Fragment>
   )
 }
