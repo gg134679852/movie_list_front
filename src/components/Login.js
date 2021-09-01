@@ -46,7 +46,8 @@ const Login = ()=>{
   }
   return (
     <div className="login__container">
-      <div className="login__left">
+      <div className="login__wrapper">
+          <div className="login__left">
       </div>
       <div className="login__right">
         <h1>登陸</h1>
@@ -62,6 +63,7 @@ const Login = ()=>{
         <button type="submit">送出</button>
         </form>
         <h5>還不是會員? <button className="" onClick={()=>pageLink('/register')}>註冊</button></h5>
+      </div>
       </div>
     </div>
   )

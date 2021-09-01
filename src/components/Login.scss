@@ -1,10 +1,11 @@
 .login{
   &__container{
-  outline: 1px solid red;
-  position: absolute;
-  top: 10%;
-  left: 11%;
-  margin-top: 30%;
+  width: 85%;
+  border-radius: 5px;
+  margin: 30px auto;
+  background: #101010;
+  }
+  &__wrapper{
   display: grid;
   grid-template-columns: minmax(auto, 1fr)
   }
@@ -34,9 +35,11 @@
     align-items: center;
     margin-left: 1.5%;
     & input{
+      font-size: 1rem;
        margin: 5px;
     }
     & label {
+    font-size: 1rem;
     color: azure;
     }
     & button{
@@ -49,36 +52,10 @@
   }
 }
 
-
 @media screen and (min-width: 768px) {
 .login{
-  &__container{
-    width: 700px;
-    height: 400px;
-    left: 5%;
-    grid-template-columns:  minmax(auto, 1fr) minmax(auto, 1fr);
-   }
-   &__left{
-    height: 100%;
-    background-image: url('../img/addy-ire-Jz4X5UOoVfs-unsplash.jpg');
-    background-position: center;
-    background-size: cover;
-  }
- }
-}
-@media screen and (min-width: 414px) {
-.login{
-  &__container{
-    left: 15%;
-  }
- }
-}
-@media screen and (min-width: 768px) {
-.login{
-  &__container{
-    width: 700px;
-    height: 400px;
-    left: 5%;
+  &__wrapper{
+    height: 500px;
     grid-template-columns:  minmax(auto, 1fr) minmax(auto, 1fr);
    }
    &__left{
@@ -91,20 +68,23 @@
 }
 @media screen and (min-width: 1024px) {
   .login{
-  &__container{
-    width: 920px;
-    height: 550px;
-    top:-10%;
+  &__wrapper{
+    height:650px;
   }
  }
 }
 @media screen and (min-width: 2300px) {
   .login{
-  &__container{
-    width: 1500px;
+  &__wrapper{
     height: 800px;
-    top:-45%;
-    left: 20%;
+  }
+  &__right__form-group__input{
+    & label{
+      font-size: 1.5rem;
+    }
+    & input{
+      font-size: 1.5rem;
+    }
   }
  }
 }
