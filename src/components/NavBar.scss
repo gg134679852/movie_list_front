@@ -14,6 +14,47 @@
     background: red;
     color: azure;
    }
+   &__menu-btn{
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 80px;
+      height: 80px;
+      cursor: pointer;
+      transition: all .5s ease-in-out;
+   &__burger{
+      width: 50px;
+      height: 6px;
+      background: red;
+      border-radius: 5px;
+      transition: all .5s ease-in-out;
+      }
+   &__burger::before,&__burger::after{
+      content: '';
+      position: absolute;
+      width: 50px;
+      height: 6px;
+      background: red;
+      border-radius: 5px;
+      transition: all .5s ease-in-out;
+      }
+      &__burger::before{
+        transform: translateY(-16px);
+      }
+      &__burger::after{
+        transform: translateY(16px);
+      }
+      &.open &__burger{
+        transform: translateX(-50px);
+        background: transparent;
+      }
+      &.open &__burger::before{
+        transform: rotate(45deg) translate(35px, -35px);
+      }
+      &.open &__burger::after{
+        transform: rotate(-45deg) translate(35px, 35px);
+      }
    &__user-buttons{
      display: flex;
      &__userPage,&__logout{
@@ -25,6 +66,7 @@
      }
    }
   }
+}
 .web-title {
   display: flex;
   align-items: center;

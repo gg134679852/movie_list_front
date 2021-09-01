@@ -1,12 +1,14 @@
-import React,{Fragment} from 'react'
+import React,{useState,Fragment} from 'react'
 import './NavBar.scss'
 import {useHistory} from "react-router-dom"
 import { removeUserInfo } from "../state/actions/index"
 import { Toast } from "../utils/sweetalert"
 import { useDispatch} from "react-redux"
 import {useSelector} from "react-redux"
+import MediaQuery  from 'react-responsive'
 const NavBar =()=>{
   const userData = useSelector((state)=>state.userReducer)
+  const [isOpen,setIsOpen] = useState(false)
   const dispatch = useDispatch()
   const history = useHistory()
   const pageLink = (link)=>{
@@ -19,6 +21,9 @@ const NavBar =()=>{
       title: "成功登出"
     })
   }
+  const openMenu = ()=>{
+    setIsOpen(e=>!e)
+  }
   return (
     <Fragment>
     <header className="header">
@@ -27,7 +32,14 @@ const NavBar =()=>{
     <button onClick={()=>pageLink('/')}><h1>MOVIE-LIST</h1></button>
   </div>
   <div className="header-buttons">
-  {userData.id.length !== 0 ? 
+    <MediaQuery minWidth={375} maxWidth={1224}>
+      <div className={isOpen ? "header-buttons__menu-btn open":"header-buttons__menu-btn"} onClick={openMenu}>
+       <div className="header-buttons__menu-btn__burger">
+        </div>
+      </div>
+      </MediaQuery>
+      <MediaQuery minWidth={1224}>
+        {userData.id.length !== 0 ? 
     (
       <div className="header-buttons__user-buttons">
         <button className="header-buttons__user-buttons__userPage" onClick={()=>pageLink('/userPage')}>
@@ -42,6 +54,7 @@ const NavBar =()=>{
     <button className="header-buttons__login" onClick={()=>pageLink('/login')}>
        登陸
      </button>}
+      </MediaQuery>
     </div>
  </header>
  </Fragment>
