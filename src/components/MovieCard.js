@@ -17,6 +17,7 @@ const MovieCard = ({propDatas}) =>{
   }
   const addFavoriteMoviete = ()=>{
     const id = cardRef.current.id
+    axios.defaults.headers.common['Authorization'] = `Bearer ${userData.token}`
     axios.post('/movieList/addFavoriteMovie',{
      data:{
       movieId:id,

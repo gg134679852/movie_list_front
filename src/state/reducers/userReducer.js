@@ -3,6 +3,7 @@ const initialState = {
   id:'',
   name:'',
   email:'',
+  token:'',
   isAdmin:'user'
 }
 

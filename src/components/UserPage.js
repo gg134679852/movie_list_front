@@ -7,7 +7,8 @@ const UserPage =({userData})=>{
   useEffect(()=>{
    axios.get('/movieList/favoriteMovies',{
      params:{
-     userId:userData.id}
+     userId:userData.id},
+      headers: {'Authorization': `Bearer ${userData.token}` }
     })
    .then((obj)=>{
     setFavoriteMovie(obj.data)

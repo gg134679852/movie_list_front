@@ -27,7 +27,12 @@ const Login = ()=>{
     })
     .then((obj)=>{
       if(obj.data.status === 'success'){
-        dispatch(addUserInfo(obj.data.user))
+        const userData = 
+            {id:obj.data.user.id,
+            name:obj.data.user.name,
+            email:obj.data.user.email,
+            token:obj.data.token,}
+        dispatch(addUserInfo(userData))
         Toast.fire({
           icon: 'success',
           title: obj.data.message

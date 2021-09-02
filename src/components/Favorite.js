@@ -15,7 +15,8 @@ const Favorite = ({propDatas}) =>{
      data:{
       subMovieTitle:id,
       userId:userData.id,
-     }
+     },
+      headers: {'Authorization': `Bearer ${userData.token}` }
     })
     .then((obj)=>{
       Toast.fire({
