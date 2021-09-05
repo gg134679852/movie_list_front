@@ -46,7 +46,10 @@ const App =()=>{
     <div className="container">
        <Main movieDatas={movieDatas.datas}genreData = {movieDatas.genres}/>
    </div>
-   :<h1>loading...</h1>
+   : <div className="loading">
+      <img src='../img/Eclipse-1s-200px' alt="" />
+      <h1>網頁載入中...</h1>
+      </div>
     }
    </Route>
   <Route path='/login'>

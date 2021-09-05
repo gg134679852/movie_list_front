@@ -67,6 +67,22 @@ input:invalid {
   width: 85%;
   margin: 0 auto;
 }
+.loading{
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  &__gif{
+    height: 200px;
+    width: 200px;
+    background-image: url('./img/Eclipse-1s-800px.gif');
+    background-position: center;
+    background-size: cover;
+  }
+  &__title{
+    color: azure;
+  }
+}
 footer {
   height: 100px;
   width: 100%;
@@ -76,4 +92,12 @@ footer {
   & h2{
     color: azure;
   }
+}
+@media screen and (min-width: 768px) {
+  .loading{
+ &__gif {
+    height: 500px;
+    width: 500px;
+  }
+ }
 }

@@ -3,8 +3,7 @@ import './NavBar.scss'
 import {useHistory} from "react-router-dom"
 import { removeUserInfo } from "../state/actions/index"
 import { Toast } from "../utils/sweetalert"
-import { useDispatch} from "react-redux"
-import {useSelector} from "react-redux"
+import { useDispatch,useSelector} from "react-redux"
 import MediaQuery  from 'react-responsive'
 const NavBar =()=>{
   const userData = useSelector((state)=>state.userReducer)
@@ -29,11 +28,11 @@ const NavBar =()=>{
   return (
     <Fragment>
     <header className="header">
-  <div className="web-title">
+  <div className="web-title" data-testid="web-title">
    <button onClick={()=>pageLink('/')}><img className="web-title__img" src="https://www.iamherelearning.com/wp-content/uploads/2020/02/Movie-Icon-1-460x406.png" alt="" /></button>
     <button onClick={()=>pageLink('/')}><h1>MOVIE-LIST</h1></button>
   </div>
-  <div className="header-buttons">
+  <div className="header-buttons" data-testid="header-buttons">
     <MediaQuery minWidth={375} maxWidth={1224}>
       <div className={isOpen ? "header-buttons__menu-btn open":"header-buttons__menu-btn"} onClick={openMenu}>
        <div className="header-buttons__menu-btn__burger">
@@ -64,7 +63,7 @@ const NavBar =()=>{
       <MediaQuery minWidth={1224}>
         {userData.id.length !== 0 ? 
     (
-      <div className="header-buttons__user-buttons">
+      <div className="header-buttons__user-buttons" >
         <button className="header-buttons__user-buttons__userPage" onClick={()=>pageLink('/userPage')}>
        使用者頁面
      </button>

@@ -1,5 +1,4 @@
 import React,{useState,useEffect,useRef,Fragment} from 'react'
-import{useSpring , animated} from 'react-spring'
 import MediaQuery  from 'react-responsive'
 import {useLocation} from "react-router-dom"
 import {axios} from '../utils/Axios'
