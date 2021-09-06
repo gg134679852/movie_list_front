@@ -4,7 +4,7 @@ import Slider from './Slider'
 import SearchBar from './SearchBar'
 import {keyWordSearch,genreFliter} from '../utils/startSearch'
 import './Main.scss'
-const Main = ({movieDatas,genreData}) => {
+const Main = ({movieDatas,genreData,setPage,page}) => {
   const [searchData, setSearchData] = useState('')
   const copyData = [...movieDatas]
   const startSearch = async (value)=>{
@@ -27,7 +27,7 @@ const Main = ({movieDatas,genreData}) => {
        <MovieCard propDatas={data} key={data.id}/>
       )
       :movieDatas.map(data=>
-       <MovieCard propDatas={data} key={data.id}/>
+       <MovieCard propDatas={data} key={data.id} setPage={setPage} page={page}/>
       )}
       </div>
  </section>
