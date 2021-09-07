@@ -1,12 +1,12 @@
-export const addUserInfo = (data)=>{
+export const addUserInfo = (data) => {
   return {
-    type:"addUserInfo",
-    payload:data
+    type: 'addUserInfo',
+    payload: data
   }
 }
 
-export const removeUserInfo = ()=>{
+export const removeUserInfo = () => {
   return {
-    type:"removeUserInfo"
+    type: 'removeUserInfo'
   }
 }
