@@ -30,6 +30,6 @@ Main.propTypes = {
   movieDatas: PropTypes.array.isRequired,
   genreData: PropTypes.array.isRequired,
   setPage: PropTypes.func.isRequired,
-  page: PropTypes.func.isRequired
+  page: PropTypes.number.isRequired
 }
 export default Main

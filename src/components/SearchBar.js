@@ -39,7 +39,7 @@ const SearchBar = ({ genreData, setSearchData }) => {
   )
 }
 SearchBar.propTypes = {
-  genreData: PropTypes.func.isRequired,
+  genreData: PropTypes.array.isRequired,
   setSearchData: PropTypes.func.isRequired
 }
 export default SearchBar

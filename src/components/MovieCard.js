@@ -94,6 +94,6 @@ const MovieCard = ({ propDatas, setPage, page }) => {
 MovieCard.propTypes = {
   propDatas: PropTypes.object.isRequired,
   setPage: PropTypes.func.isRequired,
-  page: PropTypes.func.isRequired
+  page: PropTypes.number.isRequired
 }
 export default MovieCard
