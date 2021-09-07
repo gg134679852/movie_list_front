@@ -31,9 +31,9 @@ const SearchBar = ({ genreData, setSearchData }) => {
         <option value="全部">全部</option>
         {genreData.map((e, index) => <option value={e} key={index}>{e}</option>)}
       </select>
-      <form onSubmit={(e) => { submitSearchValue(e) }}>
-        <input className="search-area__input" type="text" onChange={e => enterSearchValue(e.target.value)} required />
-        <button className="search-area__submitButton" type='submit'><i className="fas fa-search"></i></button>
+      <form className="search-area__form-group" onSubmit={(e) => { submitSearchValue(e) }}>
+        <input className="search-area__form-group__input" type="text" onChange={e => enterSearchValue(e.target.value)} required />
+        <button className="search-area__form-group__submitButton" type='submit'><i className="fas fa-search"></i></button>
       </form>
     </div>
   )
