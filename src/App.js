@@ -14,25 +14,14 @@ import axios from 'axios'
 const App =()=>{
    const userData = useSelector((state)=>state.userReducer)
   const [movieDatas,setMovieDatas]=useState({datas:[],genres:[]})
-  const [page,setPage] = useState(1) 
+  const [page,setPage] = useState(1)
+
   const getMovieList = async ()=>{
   const response = await  axios.get(`http://localhost:8000/api/movieList?page=${page}`)
-  let filterData = []
   const genreData = []
-   if(response && response.data.product)
-   response.data.product.forEach(e=> {
-      if(e.genres.indexOf("、",0) !== -1)
-      {
-        filterData = [...filterData,...e.genres.split('、')]
-      }else{
-         filterData = [...filterData,e.genres]
-      }
-   })
-   filterData.forEach(e=>{
-      if (!genreData.includes(e)){
-         genreData.push(e)
-      }
-   })
+  response.data.genres.forEach(e => {
+    genreData.push(e.name) 
+  })
    return setMovieDatas(prev =>{
       if (prev.datas.length > 0){
       return  {datas:prev.datas.concat(response.data.product),genres:genreData}
@@ -52,7 +41,7 @@ const App =()=>{
    <Route path='/' exact >
     {movieDatas.datas&&movieDatas.datas.length ?
     <div className="container">
-       <Main movieDatas={movieDatas.datas}genreData = {movieDatas.genres}  setPage={setPage} page={page}/>
+       <Main movieDatas={movieDatas.datas}genreData = {movieDatas.genres}  setPage={setPage} page={page} getMovieList={getMovieList}/>
    </div>
    : <div className="loading">
       <img src='./img/Eclipse-1s-800px' alt="" />

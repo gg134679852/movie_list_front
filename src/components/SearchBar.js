@@ -1,6 +1,7 @@
 import React,{useState} from 'react'
+import axios from 'axios'
 import './SearchBar.scss'
-const SearchBar = ({startSearch,startGenreFliter,genreData})=>{
+const SearchBar = ({startSearch,startGenreFliter,genreData,getMovieList,setSearchData})=>{
   const [searchBarData,setSearchBarData] = useState({
     keyWord:''
   })
@@ -8,11 +9,20 @@ const SearchBar = ({startSearch,startGenreFliter,genreData})=>{
     setSearchBarData({keyWord:value})
   }
   const enterGenreValue = (value)=>{
-    startGenreFliter(value)
+    if(value === "全部"){
+      setSearchData([])
+    }
+   axios.get(`http://localhost:8000/api/movieList/searchMovie?genre=${value}`)
+    .then((obj)=>{
+      setSearchData(obj.data.product)
+    })
   }
   const submitSearchValue = (e)=>{
     e.preventDefault()
-    startSearch(searchBarData)
+    axios.get(`http://localhost:8000/api/movieList/searchMovie?keyWord=${searchBarData.keyWord}`)
+    .then((obj)=>{
+      setSearchData(obj.data.product)
+    })
   }
   return (
     <div className="search-area">
