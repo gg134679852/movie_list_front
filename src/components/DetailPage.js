@@ -11,7 +11,7 @@ const DetailPage = () => {
   const detailRef = useRef()
   const [readMore, setReadMore] = useState(false)
   const userData = useSelector((state) => state.userReducer)
-  const { propDatas } = location.state
+  const { propDatas, userPage } = location.state
   const addFavoriteMoviete = () => {
     const id = detailRef.current.id
     axios.post('/movieList/addFavoriteMovie', {
@@ -20,6 +20,23 @@ const DetailPage = () => {
         userId: userData.id
       }
     })
+      .then((obj) => {
+        Toast.fire({
+          icon: obj.data.status,
+          title: obj.data.message
+        })
+      })
+  }
+  const removeFavoriteMoviete = () => {
+    const id = detailRef.current.id
+    axios
+      .delete('/movieList/removeFavoriteMovie', {
+        data: {
+          subMovieTitle: id,
+          userId: userData.id
+        },
+        headers: { Authorization: `Bearer ${userData.token}` }
+      })
       .then((obj) => {
         Toast.fire({
           icon: obj.data.status,
@@ -39,8 +56,12 @@ const DetailPage = () => {
             <div className="detail-page__header__posterAndbutton">
               <img src={propDatas.poster} alt="" className="detail-page__header__posterAndbutton__poster" />
               {userData.id.length !== 0
-                ? <button className="detail-page__header__posterAndbutton__add-button"
-                  onClick={addFavoriteMoviete} id={propDatas.id} ref={detailRef}><h4>收藏</h4></button>
+                ? (
+                    userPage
+                      ? <button className="detail-page__header__posterAndbutton__remove-button"
+                      onClick={removeFavoriteMoviete} id={propDatas.subMovieTitle} ref={detailRef}><h4>移除</h4></button>
+                      : <button className="detail-page__header__posterAndbutton__add-button"
+                      onClick={addFavoriteMoviete} id={propDatas.id} ref={detailRef}><h4>收藏</h4></button>)
                 : null}
             </div>
             <div className="detail-page__header__info">
@@ -70,8 +91,12 @@ const DetailPage = () => {
             <div className="detail-page__header__posterAndbutton">
               <img src={propDatas.poster} alt="" className="detail-page__header__posterAndbutton__poster" />
               {userData.id.length !== 0
-                ? <button className="detail-page__header__posterAndbutton__add-button"
-                  onClick={addFavoriteMoviete} id={propDatas.id} ref={detailRef}><h4>收藏</h4></button>
+                ? (
+                    userPage
+                      ? <button className="detail-page__header__posterAndbutton__remove-button"
+                      onClick={removeFavoriteMoviete} id={propDatas.subMovieTitle} ref={detailRef}><h4>移除</h4></button>
+                      : <button className="detail-page__header__posterAndbutton__add-button"
+                      onClick={addFavoriteMoviete} id={propDatas.id} ref={detailRef}><h4>收藏</h4></button>)
                 : null}
             </div>
             <div className="detail-page__header__info">

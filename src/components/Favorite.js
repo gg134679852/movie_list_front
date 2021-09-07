@@ -30,7 +30,7 @@ const Favorite = ({ propDatas }) => {
   const pageLink = () => {
     history.push({
       pathname: '/detailPage',
-      state: { propDatas }
+      state: { propDatas, userPage: true }
     })
   }
   return (

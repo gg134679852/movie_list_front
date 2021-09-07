@@ -22,7 +22,7 @@ const MovieCard = ({ propDatas, setPage, page }) => {
   const pageLink = () => {
     history.push({
       pathname: '/detailPage',
-      state: { propDatas }
+      state: { propDatas, userPage: false }
     })
   }
   const addFavoriteMoviete = (e) => {
