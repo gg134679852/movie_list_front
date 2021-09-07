@@ -1,10 +1,9 @@
 .register{
   &__container{
-  outline: 1px solid red;
-  position: absolute;
-  top: 10%;
-  left: 11%;
-  margin-top: 30%;
+  width: 85%;
+  border-radius: 5px;
+  margin: 30px auto;
+  background: #101010;
   display: grid;
   grid-template-columns: minmax(auto, 1fr)
   }
@@ -31,6 +30,9 @@
     align-items: center;
     margin-left: 1.5%;
     & input{
+       width: 90%;
+       height: 40px;
+       font-size: 1rem;
        margin: 5px;
     }
     & label {
@@ -46,19 +48,11 @@
   }
 }
 
-@media screen and (min-width: 414px) {
-.register{
-  &__container{
-    left: 15%;
-  }
- }
-}
 @media screen and (min-width: 768px) {
 .register{
   &__container{
-    width: 700px;
-    height: 400px;
-    left: 5%;
+    width: 720px;
+    height: 550px;
     grid-template-columns:  minmax(auto, 1fr) minmax(auto, 1fr);
    }
    &__left{
@@ -67,6 +61,11 @@
     background-position: center;
     background-size: cover;
   }
+  &__right__form-group{
+    & label {
+      font-size: 1.5rem;
+    }
+  }
  }
 }
 @media screen and (min-width: 1024px) {
@@ -74,7 +73,6 @@
   &__container{
     width: 920px;
     height: 550px;
-    top:-10%;
   }
  }
 }
@@ -83,8 +81,6 @@
   &__container{
     width: 1500px;
     height: 800px;
-    top:-50%;
-    left: 20%;
   }
  }
 }

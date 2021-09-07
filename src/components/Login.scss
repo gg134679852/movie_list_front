@@ -34,11 +34,12 @@
   &__right__form-group{
     & input{
       width: 90%;
+      height: 40px;
       font-size: 1rem;
        margin: 5px;
     }
     & label {
-    font-size: 1rem;
+    font-size: 1.5rem;
     color: azure;
     }
     & button{
