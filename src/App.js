@@ -8,8 +8,7 @@ import Register from './components/Register'
 import UserPage from './components/UserPage'
 import DetailPage from './components/DetailPage'
 import {useSelector} from "react-redux"
-// import {axios} from './utils/Axios'
-import axios from 'axios'
+import {axios} from './utils/Axios'
 
 const App =()=>{
    const userData = useSelector((state)=>state.userReducer)
@@ -17,7 +16,7 @@ const App =()=>{
   const [page,setPage] = useState(1)
 
   const getMovieList = async ()=>{
-  const response = await  axios.get(`http://localhost:8000/api/movieList?page=${page}`)
+  const response = await  axios.get(`movieList?page=${page}`)
   const genreData = []
   response.data.genres.forEach(e => {
     genreData.push(e.name) 
@@ -44,8 +43,8 @@ const App =()=>{
        <Main movieDatas={movieDatas.datas}genreData = {movieDatas.genres}  setPage={setPage} page={page} getMovieList={getMovieList}/>
    </div>
    : <div className="loading">
-      <img src='./img/Eclipse-1s-800px' alt="" />
-      <h1>網頁載入中...</h1>
+     <div className="loading__gif"></div>
+      <h1 className="loading__title">網頁載入中...</h1>
       </div>
     }
    </Route>
