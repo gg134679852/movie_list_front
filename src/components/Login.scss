@@ -19,6 +19,7 @@
     align-items: center;
     text-align: center;
     & h1{
+      margin: 10px;
       color: red;
     }
 
@@ -26,15 +27,13 @@
       color:azure;
     }
     & button{
+      margin: 10px;
       color:azure;
   }
   }
   &__right__form-group{
-    display: flex;
-    flex-flow:column;
-    align-items: center;
-    margin-left: 1.5%;
     & input{
+      width: 90%;
       font-size: 1rem;
        margin: 5px;
     }
@@ -45,7 +44,7 @@
     & button{
       width: 120px;
       height: 40px;
-      margin: 5px;
+      margin: 10px;
       color: azure;
       background-color:red;
     }
