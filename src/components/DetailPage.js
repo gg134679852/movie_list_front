@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom'
 import { axios } from '../utils/Axios'
 import { Toast } from '../utils/sweetalert'
 import { useSelector } from 'react-redux'
-import ReactPlayer from 'react-player/youtube'
+import YouTube from 'react-youtube'
 import './DetailPage.scss'
 const DetailPage = () => {
   const location = useLocation()
@@ -47,6 +47,19 @@ const DetailPage = () => {
   const openReadMore = () => {
     setReadMore(e => !e)
   }
+  const opts = {
+    small: {
+      width: '300px',
+      height: '300px'
+    },
+    middle: {
+      width: '450px',
+      height: '300px'
+    },
+    table: {
+      width: '800px', height: '500px'
+    }
+  }
   return (
     <div className="detail-page__container">
       <MediaQuery minWidth={360} maxWidth={1024}>
@@ -77,14 +90,19 @@ const DetailPage = () => {
           <h5>{propDatas.description.length < 300 ? propDatas.description : (readMore ? propDatas.description : propDatas.description.slice(0, 100))}{propDatas.description.length < 300 ? (null) : (<button className="detail-page__description__read-more-button" onClick={openReadMore}>...展開全文</button>)}</h5>
         </div>
         <div className="detail-page__trailer">
+          <MediaQuery minWidth={375} maxWidth={416}>
+            {propDatas.trailer === 'none'
+              ? <h1>尚無預告片</h1>
+              : <YouTube videoId={propDatas.trailer} opts={opts.small} ></YouTube>}
+          </MediaQuery>
+          <MediaQuery minWidth={667} maxWidth={813}>
           {propDatas.trailer === 'none'
             ? <h1>尚無預告片</h1>
-            : <ReactPlayer url={`http://www.youtube.com/embed/${propDatas.trailer}`}
-              controls={true} width='350px' height="300px"
-            />}
+            : <YouTube videoId={propDatas.trailer} opts={opts.middle} ></YouTube>}
+          </MediaQuery>
         </div>
       </MediaQuery>
-      <MediaQuery minWidth={1024}>
+      <MediaQuery minWidth={1024} maxWidth={2560}>
         <div className="detail-page__header">
           <img className="detail-page__header__backdrop" src={propDatas.backdrop} alt="" />
           <div className="detail-page__header__wrapper">
@@ -114,7 +132,7 @@ const DetailPage = () => {
         <div className="detail-page__trailer">
           {propDatas.trailer === 'none'
             ? <h1>尚無預告片</h1>
-            : }
+            : <YouTube videoId={propDatas.trailer} opts={opts.table}></YouTube>}
         </div>
       </MediaQuery>
     </div>
