@@ -115,7 +115,7 @@ const DetailPage = () => {
           {propDatas.trailer === 'none'
             ? <h1>尚無預告片</h1>
             : <ReactPlayer url={`http://www.youtube.com/embed/${propDatas.trailer}`}
-              controls={true} width='1500px' height="900px"
+              controls={true} width='1000px' height="450px"
             />}
         </div>
       </MediaQuery>
