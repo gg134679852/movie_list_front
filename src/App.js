@@ -64,7 +64,7 @@ const App = () => {
             </Route>
          </Switch>
          <footer>
-            <h2>© 2021 Movie-List All Rights Reserved.</h2>
+            <h4>© 2021 Movie-List All Rights Reserved.</h4>
          </footer>
       </Fragment>
   )
