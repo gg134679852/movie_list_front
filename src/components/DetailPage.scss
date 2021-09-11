@@ -75,6 +75,7 @@
    width: 85%;
    height: 100%;
    margin: 0 auto;
+   padding-bottom: 10px;
    display: flex;
    justify-content: center;
    align-items: center;
@@ -117,7 +118,6 @@
  }
  .detail-page__trailer{
    width: 75%;
-   padding-bottom: 50px;
  }
 }
 @media screen and (min-width: 1024px) {
