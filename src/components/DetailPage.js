@@ -96,9 +96,10 @@ const DetailPage = () => {
               : <YouTube videoId={propDatas.trailer} opts={opts.small} ></YouTube>}
           </MediaQuery>
           <MediaQuery minWidth={667} maxWidth={813}>
-          {propDatas.trailer === 'none'
-            ? <h1>尚無預告片</h1>
-            : <YouTube videoId={propDatas.trailer} opts={opts.middle} ></YouTube>}
+            {propDatas.trailer === 'none'
+              ? <h1>尚無預告片</h1>
+              : <YouTube videoId={propDatas.trailer} opts={opts.middle} ></YouTube>
+            }
           </MediaQuery>
         </div>
       </MediaQuery>

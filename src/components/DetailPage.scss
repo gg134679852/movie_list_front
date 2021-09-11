@@ -75,7 +75,6 @@
    width: 85%;
    height: 100%;
    margin: 0 auto;
-   padding-bottom: 50px;
    display: flex;
    justify-content: center;
    align-items: center;
@@ -83,6 +82,7 @@
      color: azure;
      margin: 100px;
    }
+
  }
 @media screen and (min-width: 768px) {
   .detail-page__header{
