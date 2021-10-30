@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import './Register.scss'
 import { axios } from '../utils/Axios'
+import { useHistory } from 'react-router-dom'
 import { Toast } from '../utils/sweetalert'
 const Register = () => {
   const [registerData, setRegisterData] = useState({
@@ -9,6 +10,7 @@ const Register = () => {
     password: '',
     confirmPassword: ''
   })
+  const history = useHistory()
   const handle = (e) => {
     const newData = { ...registerData }
     newData[e.target.id] = e.target.value
@@ -30,6 +32,7 @@ const Register = () => {
             icon: 'success',
             title: obj.data.message
           })
+          history.push('/login')
         } else {
           Toast.fire({
             icon: 'error',
