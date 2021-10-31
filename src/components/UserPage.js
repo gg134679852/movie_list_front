@@ -13,7 +13,12 @@ const UserPage = ({ userData }) => {
       .then((obj) => {
         setFavoriteMovie(obj.data)
       })
-  }, [userData])
+  }, [userData, favoriteMovie])
+
+  const favoriteMovieFiler = (id) => {
+    setFavoriteMovie(e => e.data.filter(data => data.subMovieTitle !== id))
+  }
+
   return (
     <Fragment>
       <div className="userPage__container">
@@ -27,7 +32,7 @@ const UserPage = ({ userData }) => {
         <h1 className="userPage__favorite-movies-area__title">收藏電影列表</h1>
         <div className="userPage__favorite-movies-area">
           {favoriteMovie.data && favoriteMovie.data.length
-            ? favoriteMovie.data.map((data) => <Favorite propDatas={data} key={data.id} />)
+            ? favoriteMovie.data.map((data) => <Favorite propDatas={data} key={data.id} favoriteMovieFiler={favoriteMovieFiler} />)
             : null}
         </div>
       </div>

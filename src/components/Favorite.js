@@ -6,7 +6,7 @@ import { Toast } from '../utils/sweetalert'
 import { useHistory } from 'react-router-dom'
 import MediaQuery from 'react-responsive'
 import { useSelector } from 'react-redux'
-const Favorite = ({ propDatas }) => {
+const Favorite = ({ propDatas, favoriteMovieFiler }) => {
   const cardRef = useRef()
   const history = useHistory()
   const userData = useSelector((state) => state.userReducer)
@@ -25,6 +25,7 @@ const Favorite = ({ propDatas }) => {
           icon: obj.data.status,
           title: obj.data.message
         })
+        favoriteMovieFiler(id)
       })
   }
   const pageLink = () => {
@@ -78,6 +79,7 @@ const Favorite = ({ propDatas }) => {
   )
 }
 Favorite.propTypes = {
-  propDatas: PropTypes.array.isRequired
+  propDatas: PropTypes.array.isRequired,
+  favoriteMovieFiler: PropTypes.func.isRequired
 }
 export default Favorite
