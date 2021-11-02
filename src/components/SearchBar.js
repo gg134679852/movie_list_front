@@ -20,6 +20,9 @@ const SearchBar = ({ genreData, setSearchData }) => {
   }
   const submitSearchValue = (e) => {
     e.preventDefault()
+    if (searchBarData.keyWord.length === 0) {
+      setSearchData([])
+    }
     axios.get(`movieList/searchMovie?keyWord=${searchBarData.keyWord}`)
       .then((obj) => {
         setSearchData(obj.data.product)
@@ -32,7 +35,7 @@ const SearchBar = ({ genreData, setSearchData }) => {
         {genreData.map((e, index) => <option value={e} key={index}>{e}</option>)}
       </select>
       <form className="search-area__form-group" onSubmit={(e) => { submitSearchValue(e) }}>
-        <input className="search-area__form-group__input" type="text" onChange={e => enterSearchValue(e.target.value)} required />
+        <input className="search-area__form-group__input" type="text" onChange={e => enterSearchValue(e.target.value)} />
         <button className="search-area__form-group__submitButton" type='submit'><i className="fas fa-search"></i></button>
       </form>
     </div>
